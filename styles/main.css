@@ -1,0 +1,671 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Updated color palette to match prototype exactly */
+:root {
+  --navy-blue: #005f73;
+  --turquoise: #0a9396;
+  --sand: #e9d8a6;
+  --yellow: #ee9b00;
+  --white: #ffffff;
+  --alert-red: #e63946;
+  --text-dark: #333;
+  --light-gray: #f0f0f0;
+  --ubuntu: "Ubuntu", sans-serif;
+  --bungee: "Bungee", sans-serif;
+
+}
+
+body {
+  font-family: var(--ubuntu);
+  background: var(--white);
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* Container utility */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Fixed header with new design */
+.header-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--navy-blue);
+  z-index: 1000;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  color: #00F5FF;
+  font-family: var(--bungee);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: x-small;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.logo p {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+.nav-header ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-header a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.nav-header a:hover {
+  color: var(--turquoise);
+}
+
+/* Hero section with video background and all prototype elements */
+#hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: var(--white);
+}
+
+.alert-banner {
+  background: var(--alert-red);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.hero-content h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1em;
+}
+
+.check-icon {
+  color: var(--turquoise);
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: var(--yellow);
+  color: var(--white);
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(238, 155, 0, 0.3);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(238, 155, 0, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--white);
+  color: var(--navy-blue);
+}
+
+/* Destinations section with 3x2 grid */
+#destinos {
+  padding: 80px 0;
+  background: var(--light-gray);
+}
+
+#destinos h2 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--navy-blue);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.destination-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-10px);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 1.5em;
+  color: var(--navy-blue);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.btn-link {
+  background: var(--turquoise);
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-link:hover {
+  background: var(--navy-blue);
+}
+
+/* Packages section with pricing cards */
+#paquetes {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+#paquetes h2 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--navy-blue);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.package-card {
+  background: var(--white);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 4px solid var(--turquoise);
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+}
+
+.package-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.package-content {
+  padding: 25px;
+  text-align: center;
+}
+
+.package-content h3 {
+  font-size: 1.5em;
+  color: var(--navy-blue);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.package-description {
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.package-price {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--yellow);
+  margin-bottom: 20px;
+}
+
+/* Contact section with improved form */
+#contacto {
+  padding: 80px 0;
+  background: var(--sand);
+}
+
+#contacto h2 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--navy-blue);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-form {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 4px solid var(--turquoise);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: var(--navy-blue);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: var(--montserrat);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--turquoise);
+}
+
+.social-media {
+  background: var(--white);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.social-media h3 {
+  font-size: 1.5em;
+  color: var(--navy-blue);
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: var(--turquoise);
+  font-size: 2em;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--yellow);
+}
+
+/* About us section following prototype */
+#nosotros {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+#nosotros h2 {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--navy-blue);
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.about-text h3 {
+  font-size: 1.3em;
+  color: var(--turquoise);
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.about-text p {
+  margin-bottom: 25px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.values-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.values-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.travel-quote {
+  text-align: center;
+  font-size: 1.5em;
+  font-style: italic;
+  color: var(--turquoise);
+  border-left: 4px solid var(--yellow);
+  padding-left: 20px;
+  margin: 50px auto 0;
+  max-width: 600px;
+}
+
+/* Updated footer with better structure */
+.footer {
+  background: var(--navy-blue);
+  color: var(--white);
+  padding: 50px 0 30px;
+  margin-top: 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-col h3 {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: var(--turquoise);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.footer-col a {
+  color: var(--white);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: var(--yellow);
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.footer .social-icons a {
+  color: var(--white);
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: var(--yellow);
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .nav-header ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-header a {
+    font-size: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 2em;
+  }
+
+  .benefits-list {
+    align-items: center;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  #destinos h2,
+  #paquetes h2,
+  #contacto h2,
+  #nosotros h2 {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1025px) {
+  .destinations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .packages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-content h1 {
+    font-size: 3.5em;
+  }
+
+  .benefits-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
